@@ -9,7 +9,7 @@ interface Event {
 export abstract class Lister<T extends Event> {
   protected client: Stan;
   abstract subject: T['subject'];
-  abstract onMessage(data: T['data'], msg: Message);
+  abstract onMessage(data: T['data'], msg: Message): any;
 
   constructor(client: Stan){
     this.client = client;

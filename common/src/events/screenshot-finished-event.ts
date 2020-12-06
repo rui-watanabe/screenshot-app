@@ -1,6 +1,6 @@
 import { Subjects } from "./subjects";
 
-export interface ScreenshotCreatedEvent {
+export interface ScreenshotFinishedEvent {
   subject: Subjects.ScreenshotFinished,
   data: {
     id: String;
