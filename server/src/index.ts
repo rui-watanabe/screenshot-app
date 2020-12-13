@@ -1,8 +1,11 @@
 import { ScreenshotCreatedEventListener } from "./events/listeners/screenshot-listener-created";
 import { cloudinaryService } from "./services/cloudinary-service";
 import { natsService } from "./services/nats-service";
+import shell from 'shelljs';
 
 const start = async () => {
+  shell.mkdir('-p', 'assets/images');
+
   if(!process.env.NATS_CLUSTER_ID){
     throw new Error("Not defined process.env.NATS_CLUSTER_ID");
   }
