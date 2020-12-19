@@ -30,3 +30,5 @@ passport.use(new GoogleStrategy.Strategy({
   return done(undefined, user);
 }
 ));
+
+export { passport };
