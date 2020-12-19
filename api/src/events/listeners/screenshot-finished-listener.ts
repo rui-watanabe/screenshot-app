@@ -1,8 +1,8 @@
-import { Publisher, Subjects, ScreenshotFinishedEvent } from '@imscreenshots/common';
+import { Publisher, Subjects, ScreenshotFinishedEvent, Listener } from '@imscreenshots/common';
 import { Message } from 'node-nats-streaming';
 import { Screenshot } from '../../models/screenshot';
 
-export class ScreenshotFinishedEventPublisher extends Publisher<ScreenshotFinishedEvent> {
+export class ScreenshotFinishedEventListener extends Listener<ScreenshotFinishedEvent> {
   subject: Subjects.ScreenshotFinished = Subjects.ScreenshotFinished;
 
   async onMessage(data: ScreenshotFinishedEvent['data'], msg: Message) {
