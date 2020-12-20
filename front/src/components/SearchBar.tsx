@@ -1,12 +1,12 @@
 import React from 'react';
 
-const SearchBar = ({ auth, url }, onSubmit ) => {
+const SearchBar = ({ auth, onSubmit } ) => {
 
   const [value, setValue] = useState("");
 
   function onFormSubmit(e) {
     e.prevent.default();
-    onSubmit(url);
+    onSubmit(value.url);
   }
 
   return( 

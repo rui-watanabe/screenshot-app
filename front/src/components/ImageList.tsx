@@ -2,7 +2,7 @@ import React from 'react';
 import ImageCard from './ImageCard';
 
 
-const ImageList = ({ image, deleteScreenshot, key }) => {
+const ImageList = ({ image, deleteScreenshot }) => {
   const imageCards = images.map(image => 
     <ImageCard 
       deleteScreenshot = { deleteScreeenshot } 
