@@ -1,6 +1,10 @@
 import React from 'react';
 
-const Header = ({ auth }) => {
+interface HeaderProps {
+  auth: boolean;
+}
+
+const Header = ({ auth }: HeaderProps) => {
 
   function renderContext() {
     if(auth) {
