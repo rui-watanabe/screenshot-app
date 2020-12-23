@@ -1,12 +1,17 @@
-import React from 'react';
+import React, { FormEvent, useState } from 'react';
 
-const SearchBar = ({ auth, onSubmit } ) => {
+interface SearchBarProps {
+  auth: boolean;
+  onSubmit: (url: string) => Promise<void>;
+}
 
-  const [value, setValue] = useState("");
+const SearchBar = ({ auth, onSubmit }: SearchBarProps) => {
 
-  function onFormSubmit(e) {
-    e.prevent.default();
-    onSubmit(value.url);
+  const [value, setValue] = useState<string>("");
+
+  function onFormSubmit(e: FormEvent) {
+    e.preventDefault();
+    onSubmit(value);
   }
 
   return( 
@@ -16,9 +21,9 @@ const SearchBar = ({ auth, onSubmit } ) => {
           <div className={`ui labeled field icon input ${auth ? '' : 'disabled'}`}>
             <div className="ui label">http://</div>
             <input 
-              value={ url }
-              onSubmit={e => setValue({ url: e.target.value })}
-              type="text" 
+              value={ value }
+              onSubmit={e => setValue(e.currentTarget.value)}
+              type="text"
               placeholder="Take Screenshot"
             />
           </div>
