@@ -1,6 +1,13 @@
 import React from 'react';
+import { ImagesType } from './App';
+import { deleteScreenshotType } from './ImageList';
 
-const ImageCard = ({ image, deleteScreenshot }) => {  
+interface ImageCardProps {
+    image: ImagesType[0];
+    deleteScreenshot: deleteScreenshotType;
+}
+
+const ImageCard = ({ image, deleteScreenshot }: ImageCardProps) => {  
     return (
       !image.cloudinary_url ?
         <div className="card ui segment" style={{height:'200px'}}>
