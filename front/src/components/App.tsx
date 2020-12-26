@@ -4,9 +4,21 @@ import Header from './Header';
 import SearchBar from './SearchBar';
 import ImageList from './ImageList';
 
+interface ImageInterface {
+  id: string;
+  cloudinary_url: string;
+  cloudinary_version: string;
+  width: number;
+  height: number;
+  bytes: number;
+  format: string;
+};
+
+export type ImagesType = ImageInterface[];
+
 const App = () => {
-  const [screenshots, setScreenshots] = useState([]);
-  const [auth, setAuth] = useState(false);
+  const [screenshots, setScreenshots] = useState<ImagesType>([]);
+  const [auth, setAuth] = useState<boolean>(false);
 
   useEffect(()=>{
       fetchScreenshots();
